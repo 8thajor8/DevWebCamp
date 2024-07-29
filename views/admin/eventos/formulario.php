@@ -20,10 +20,10 @@
             id="descripcion"
             name="descripcion"
             placeholder="Descripcion del Evento"
-            value="<?php echo $evento->descripcion ?? ''; ?>"
+            
             rows="8"
             
-        >
+        ><?php echo $evento->descripcion ?? ''; ?>
         </textarea>
     </div>
 
