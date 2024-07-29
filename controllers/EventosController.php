@@ -142,4 +142,28 @@ class EventosController {
         ]);
         
     }
+
+    public static function eliminar(Router $router) {
+        
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+            if(!is_admin()){
+                header('Location: /login');
+            }
+
+            $id = $_POST['id'];
+            $evento = Evento::find($id);
+
+            if(!isset($evento)){
+                header('Location: /admin/eventos');
+            }
+
+            $resultado = $evento->eliminar();
+
+            if($resultado){
+                header('Location: /admin/eventos');
+            }
+        }
+    }
 }
